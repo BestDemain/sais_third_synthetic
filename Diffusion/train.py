@@ -178,6 +178,11 @@ def evaluate(model, dataloader, device, diffusion, writer=None, step=None, prefi
     
     # 如果提供了TensorBoard写入器，记录更多详细信息
     if writer is not None and step is not None:
+        # 添加评估指标到TensorBoard
+        writer.add_scalar(f'{prefix}/Precision', precision, step)
+        writer.add_scalar(f'{prefix}/Recall', recall, step)
+        writer.add_scalar(f'{prefix}/F1_Score', f1, step)
+        
         # 创建混淆矩阵图
         try:
             from sklearn.metrics import confusion_matrix
