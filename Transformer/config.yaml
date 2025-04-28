@@ -1,0 +1,27 @@
+residue_types:
+    21
+
+model:
+    i_dim: 21  # 输入维度（氨基酸种类数）
+    o_dim: 2   # 输出维度（二分类）
+    d_model: 128  # 模型维度，从128降低到64
+    n_head: 8  # 注意力头数，从8降低到4
+    n_layer: 4 # Transformer层数，从4降低到2
+    dropout: 0.1  # Dropout率
+
+data:
+    data_path: '../Data/WSAA_data_public.pkl'
+    use_all_for_train: true  # 新增：是否使用全部数据训练
+
+train:
+    epochs: 15  # 训练轮数
+    save_interval: 1  # 每隔1个epoch保存一次当前模型
+    save_last: true  # 是否保存最后一轮的模型
+    dataloader:
+        batch_size: 64  # 批量大小，从4增加到16
+        shuffle: True
+        num_workers: 8
+        drop_last: True
+    optimizer:
+        lr: 3e-4  # 学习率，从1e-4增加到3e-4
+        weight_decay: 1e-5
