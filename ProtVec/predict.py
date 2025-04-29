@@ -84,4 +84,4 @@ def predict_test(path):
 
 
 if __name__ == "__main__":
-    predict_test("../Data/WSAA_data_public.pkl")
+    predict_test("saisdata/WSAA_data_test.pkl")
