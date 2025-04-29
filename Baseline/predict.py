@@ -40,4 +40,4 @@ if __name__ == "__main__":
     if sys.argv[1] == "train":
         train_model()
     else:
-        predict_test("saisdata/WSAA_data_test.pkl")
+        predict_test("/saisdata/WSAA_data_test.pkl")
